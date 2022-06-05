@@ -2,7 +2,11 @@
 json-server --watch db.json
 
 # command to run angular project
+mpn install
 ng serve
+
+# icons of project
+https://fontawesome.com/icons/
 
 
 

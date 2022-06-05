@@ -1,29 +1,90 @@
-<div class="row mt-4" >
-    <div class="col-md-8 mx-auto">
-        <div class="form-group">
-            <label for="label">Taches : </label>
-            <input type="text" id="label" class="form-control">
-        </div>
-        <div class="form-check mt-4">
-            <label class="form-check-label">
-                <input type="checkbox" class="form-check-input">
-                Completed
-            </label>
-        </div>
 
-        <button class="btn btn-success btn-block d-flex justify-content-end mt-4">
-            <i class="fa fa-send"></i>New Task
+    <div class="row ">
+      <div class="col d-flex justify-content-end">
+        <button  class="btn btn-dark btn-sm  " (click)="showForm = !showForm">
+          <i class="fa fa-plus d-inline-flex me-2 btn-sm "
+          ></i> new Task
         </button>
+      </div>
+
     </div>
-</div>
+
+
+
+      <!-- *************add TASK ************************** -->
+      <div class="row" *ngIf="showForm" >
+
+          <div class="col-md-6 mx-auto">
+            <div class="form-group">
+              <label for="label">label</label>
+              <input type="text" [(ngModel)]="myTask.label" class="form-control">
+            </div>
+          </div>
+
+            <div class="form-check my-2">
+              <div class="form-check-label">
+                <label for="label">
+                  <input type="text"  [(ngModel)]="myTask.completed" type="checkbox" class="form-check-input">
+
+                  completed</label>
+
+              </div>
+          </div>
+
+      <!-- *************BUTTONS UPDATE ADD************************** -->
+          <div class="row">
+              <div class="col-md-6 mx-auto">
+                  <button *ngIf="editForm" (click)="updateTask()" class="btn btn-warning btn-block mt-4"
+                          (click)="updateTask()">
+                    <i class="fa fa-refrech"></i>update Task
+                  </button>
+
+                  <button  *ngIf="!editForm"  (click)="persistTask()" class="btn btn-success btn-block ">
+                    <i class="fa fa-send"></i>New Task
+                  </button>
+            </div>
+
+          </div>
+      </div>
+
 
 <div class="row">
     <div class="col-md-6 mx-auto">
+
+      <input type="text" (keyup)="searchTasks()" [(ngModel)]="searchText"
+             placeholder="search.." class="form-control mb-2" >
+
+      <!-- *************LIST GROUPE ************************** -->
         <ul class="list-group">
-            <li *ngFor="let task of tasks" class="list-group-item d-flex justify-content-between align-items-center">
-                {{task.label}}
-                <span class="badge badge-secondary badge-pill">{{task.completed}}</span>
+            <li *ngFor="let task of resultsTasks"
+                class="list-group-item d-flex justify-content-between align-items-center">
+
+              <button class="btn btn-warning btn-sm" (click)="editTask(task)">
+                <i class="fa fa-pencil"></i>
+              </button>
+
+              {{task.label}}
+                <span
+                  (click)="toggleCompleted(task)"
+                  [ngClass]="{
+                  'bg-info':task.completed,
+                  'bg-danger': !task.completed
+                    }"
+                  class="badge badge-secondary badge-pill"
+                >
+                  <i class="fa" [ngClass]="{
+                    'fa-thumbs-up': task.completed,
+                    'fa-thumbs-down': !task.completed
+                  }"></i>
+                </span>
+
+              <button class="btn btn-sm btn-dark" (click)="deleteTask(task.id)">
+                <i class="fa fa-trash"></i>
+
+              </button>
             </li>
         </ul>
+
     </div>
-</div>
+
+

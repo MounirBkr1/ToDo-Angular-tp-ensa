@@ -1,4 +1,4 @@
-#command to run json-server
+# command to run json-server
 json-server --watch db.json
 
 # command to run angular project

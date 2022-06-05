@@ -8,7 +8,9 @@ ng serve
 
 # icons of project
 https://fontawesome.com/icons/
-
+# links:
+front: http://localhost:4200/
+back : http://localhost:3000/tasks
 
 
 # Project1

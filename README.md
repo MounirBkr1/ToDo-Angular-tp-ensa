@@ -1,3 +1,11 @@
+#command to run json-server
+json-server --watch db.json
+
+# command to run angular project
+ng serve
+
+
+
 # Project1
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.

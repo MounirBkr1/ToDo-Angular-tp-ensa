@@ -1,5 +1,6 @@
 # command to run json-server
 json-server --watch db.json
+port 3000 , if not change port in task.service.ts
 
 # command to run angular project
 mpn install

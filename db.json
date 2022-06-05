@@ -2,13 +2,18 @@
   "tasks": [
     {
       "id": 1,
-      "label": "Learn Angular",
-      "completed": true
+      "label": "Learn Angular16",
+      "completed": false
     },
     {
       "id": 1,
       "label": "Learn Spring Boot",
       "completed": "false"
+    },
+    {
+      "label": "learn js node",
+      "completed": "false",
+      "id": 2
     }
   ]
 }

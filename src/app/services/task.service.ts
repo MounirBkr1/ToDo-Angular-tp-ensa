@@ -11,6 +11,6 @@ export class TaskService {
   constructor(private http:HttpClient) { }
 
   findAll(){
-    return this.http.get<Task[]> ('http://localhost:5000/tasks');
+    return this.http.get<Task[]> ('http://localhost:3000/tasks');
   }
 }
